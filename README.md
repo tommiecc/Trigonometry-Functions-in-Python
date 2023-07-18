@@ -3,6 +3,8 @@
 ## Introduction
 This started as a little side-project I completed over a weekend and - at the moment - it still is. At the moment it is simply a trig function visualiser, showing a circle, some x and y markers, moving around with some info on the side. 
 
+![image showing the visualisation](https://github.com/tommiecc/Trigonometry-Functions-in-Python/blob/main/assets/trig_pygame.PNG)
+
 ## Future Roadmap
 I am some cool ideas to elevate this project. This is current roadmap for future releases:
 - Add lines connecting the 3 markers together to create a right-angled triangle which moves around the circle
