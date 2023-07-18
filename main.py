@@ -222,6 +222,33 @@ def determine_angle(y, x, c):
         angle += 360
    
     return angle
+
+def determine_sin(sine):
+    # define max and min variables
+    min = 200
+    max = 999
+    
+    # normalize the y location of the marker to be scaled to sine
+    # this represents the equation:
+    # x = (s - min / max - min) * 2 - 1
+    # x = (s - 200 / 999 - 200) * 2 - 1
+    normalized_sin = round(((sine - min) / (max - min)) * 2 - 1, 3)
+    
+    # return the inverse of the normalized sine
+    return -normalized_sin
+
+def determine_cos(cosine):
+    # define max and min variables
+    min = 200
+    max = 999
+    
+    # normalize the x location of the marker to be scaled correctly to cosine
+    normalized_cosine = round(((cosine - min) / (max - min)) * 2 - 1, 3)
+    
+    # return the normalized cosine
+    return normalized_cosine
+            
+     
     
 # define basic variables
 WIDTH = 600
@@ -271,12 +298,13 @@ while running:
     sprites.draw(screen)
     
     # move each of the marker sprites
+    
     c_marker.move()
     x_marker.move()
     y_marker.move()
     
     # update the text
-    text.update_text(determine_angle(c_marker.new_y, c_marker.new_x, c_marker.center), c_marker.angle_speed, y_marker.new_y, x_marker.new_x)
+    text.update_text(determine_angle(c_marker.new_y, c_marker.new_x, c_marker.center), c_marker.angle_speed, determine_sin(y_marker.new_y), determine_cos(x_marker.new_x))
     
     # update the display
     pygame.display.update()
