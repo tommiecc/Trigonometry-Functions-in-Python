@@ -172,6 +172,7 @@ class Text(pygame.sprite.Sprite):
         
         # define the font; arial at size 24
         self.font = pygame.font.SysFont('Arial', 24)
+        self.crfont = pygame.font.SysFont('Arial', 14)
         
         # define the surface
         self.image = pygame.Surface([1000, 1000])
@@ -193,6 +194,9 @@ class Text(pygame.sprite.Sprite):
         
         self.cos_text = self.font.render('COSINE: ', False, WHITE)
         self.image.blit(self.cos_text, (25, 100))
+    
+        self.cr_text = self.crfont.render('github.com/tommiecc', False, WHITE)
+        self.image.blit(self.cr_text, (600, 100))
         
         self.rect = self.image.get_rect()
     
@@ -206,12 +210,14 @@ class Text(pygame.sprite.Sprite):
         self.speed_text = self.font.render(f'Speed: {speed}', False, WHITE)
         self.sin_text = self.font.render(f'SIN: {sin}', False, WHITE)
         self.cos_text = self.font.render(f'COS: {cos}', False, WHITE)
+        self.cr_text = self.crfont.render('github.com/tommiecc', False, WHITE)
         
         # render the text to the surface
         self.image.blit(self.angle_text, (25, 25))
         self.image.blit(self.speed_text, (25, 50))
         self.image.blit(self.sin_text, (25, 75))
         self.image.blit(self.cos_text, (25, 100))   
+        self.image.blit(self.cr_text, (250, 550))
 
 # function to determine the current angle of the location of the circle marker in respect to it's place around the circle.
 def determine_angle(y, x, c):
